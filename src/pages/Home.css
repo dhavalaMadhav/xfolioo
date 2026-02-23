@@ -1,0 +1,733 @@
+/* ── HERO ── */
+.hero {
+    background: var(--c-white);
+    /* tight top — nav floats, so content starts higher */
+    padding: 72px 60px 100px;
+    text-align: left;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.hero-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--c-primary-light);
+    color: var(--c-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+    border: 1px solid rgba(79, 25, 100, 0.2);
+}
+
+.hero h1 {
+    /* dramatically bigger and bolder */
+    font-size: clamp(3rem, 7.5vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    color: var(--c-dark);
+    margin-bottom: 28px;
+    max-width: 900px;
+}
+
+.hero h1 .accent {
+    color: var(--c-primary);
+    font-style: italic;
+}
+
+.title-quote {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--c-primary);
+    line-height: 1;
+    opacity: 1;
+    vertical-align: -0.05em;
+    margin: 0 4px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--c-text-light);
+    max-width: 580px;
+    margin: 0 0 48px;
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+/* ── HERO BUTTONS — curved + shine ── */
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.hero-btn-primary {
+    background: #000;
+    color: #fff;
+}
+
+.hero-btn-primary:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* ghost — no bg, no border, violet text + sliding arrow */
+.hero-btn-ghost {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #000;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 15px 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: gap 0.25s;
+}
+
+.hero-btn-ghost:hover {
+    gap: 20px;
+    color: #333;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-arrow {
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 1;
+    color: #000;
+    transition: transform 0.25s;
+}
+
+.hero-btn-ghost:hover .btn-arrow {
+    transform: translateX(7px);
+}
+
+/* ── TRUST BAR — scroll-driven horizontal strip ── */
+.trust-bar {
+    background: transparent;
+    padding: 20px 0;
+    overflow: hidden;
+    /* clip the scrolling track */
+    position: relative;
+}
+
+.trust-track {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    width: max-content;
+    /* wide enough for all items */
+    will-change: transform;
+    transition: transform 0.1s linear;
+    padding: 0 40px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.trust-item svg {
+    color: #000;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+}
+
+/* ── ABOUT (Redesigned Layout with Fintech Stock Theme) ── */
+.about {
+    position: relative;
+    background: #09090e;
+    /* Deep navy / black */
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+/* Bottom scoop graphic to transition into white section below */
+.about::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M0,80 L1440,80 L1440,80 C1100,80 900,0 720,0 C540,0 340,80 0,80 Z'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+/* Background canvas for snake effect */
+.about-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Stock curve draw animation (Scroll-driven via JS) */
+.snake-line {
+    /* transition makes the JS scrolling scrub smooth */
+    transition: stroke-dashoffset 0.1s ease-out;
+}
+
+/* ── Content Foreground Formatting ── */
+.about-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.about-sidebar {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.about-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-tabs li {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+    transition: color 0.3s;
+}
+
+.about-tabs li.active {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.about-main {
+    flex-grow: 1;
+}
+
+.about-head {
+    margin-bottom: 60px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 24px;
+    max-width: 800px;
+}
+
+.about-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.about-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-card {
+    position: relative;
+    padding: 40px 32px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    /* For the expanding hover background */
+    transition: all 0.4s ease;
+    border-radius: var(--radius);
+}
+
+/* Base style for hover background spreading from the center */
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background-color: var(--c-blush);
+    /* Blush fill */
+    border-radius: 50%;
+    /* Starts circular */
+    transform: translate(-50%, -50%) scale(0) rotate(-90deg);
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Slower and smoother */
+    z-index: 0;
+}
+
+.about-card:hover::before {
+    transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+}
+
+/* Ensure foreground content is visible above the injected background */
+.about-card h3,
+.about-card p,
+.about-card .about-explore {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.about-card:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.about-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+.about-card:hover h3,
+.about-card:hover p {
+    color: var(--c-dark);
+}
+
+.about-explore {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--c-blush);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s, gap 0.3s;
+}
+
+.about-explore:hover {
+    gap: 12px;
+}
+
+.about-card:hover .about-explore {
+    color: var(--c-primary);
+}
+
+@media (max-width: 900px) {
+    .about-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-sidebar {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 24px;
+    }
+
+    .about-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 24px;
+    }
+
+    .about-title {
+        font-size: 2.2rem;
+    }
+
+    .about-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 32px 0;
+    }
+
+    .about-card:first-child {
+        padding-top: 0;
+    }
+
+    .about-card:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+/* ── SERVICES ── */
+.services {
+    background-color: #ffffff;
+}
+
+/* Lined headers and custom fonts */
+.section-head-lined {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.title-custom-font {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.title-custom-font::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 100%;
+    min-height: 48px;
+    background: #000;
+}
+
+.title-huge {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: #000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    /* Creates a 3px border essentially */
+    padding-top: 0;
+    /* Header touches the top */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card-header {
+    background-color: #000;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #fff;
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+}
+
+.service-card-label {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font);
+}
+
+.service-card-body {
+    background-color: #fff;
+    border-radius: 17px;
+    /* A bit smaller than the outer 20px */
+    padding: 36px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--c-dark);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.service-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    flex: 1;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    color: var(--c-text-light);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.service-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    color: var(--c-primary);
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.service-link {
+    font-weight: 700;
+    color: var(--c-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+    transition: gap 0.2s;
+}
+
+.service-link:hover {
+    gap: 10px;
+}
+
+@keyframes moveDash {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
+
+.animated-dotted-curve {
+    animation: moveDash 1.5s linear infinite;
+}
+
+/* ── LITERACY ── */
+.literacy {
+    background: #ffffff;
+    padding: 96px 0;
+}
+
+.literacy .section-tag {
+    color: var(--c-primary);
+}
+
+.literacy .section-title {
+    color: #000;
+}
+
+.literacy .section-sub {
+    color: var(--c-text-light);
+}
+
+.literacy-cards-grid {
+    background: #09090e;
+    border-radius: 24px;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 56px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.literacy-card {
+    border-top: none;
+}
+
+.literacy-card .s-num {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 16px;
+    transition: color 0.4s ease;
+}
+
+.literacy-card:hover .s-num {
+    color: var(--c-dark);
+}
+
+.stat-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+
+.stat-card-v {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-align: center;
+}
+
+.stat-card-v .s-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stat-card-v .s-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+}
+
+.lit-message {
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    padding: 28px 36px;
+    max-width: 660px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--c-dark);
+    line-height: 1.75;
+}
+
+.lit-message strong {
+    color: var(--c-primary);
+    font-weight: 700;
+}
+
+.literacy-cta {
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .stat-cards-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 60px 24px 64px;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.4rem, 9vw, 3.4rem);
+    }
+
+    .hero p {
+        max-width: 100%;
+    }
+
+    .hero-btns {
+        justify-content: flex-start;
+    }
+
+    .hero-btn {
+        padding: 13px 24px;
+        font-size: 0.97rem;
+    }
+
+    .trust-bar {
+        padding: 24px 0;
+    }
+
+    .about-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}

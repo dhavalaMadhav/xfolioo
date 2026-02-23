@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshops – XFOLIOO Investor Services LLP</title>
+    <meta name="description"
+        content="Financial literacy workshops on mutual funds, retirement, insurance, and tax planning by XFOLIOO." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --c-primary: #5B3FD4;
+            --c-primary-dark: #4528B5;
+            --c-primary-light: #EFEAFE;
+            --c-white: #FFFFFF;
+            --c-dark: #111827;
+            --c-text-light: #6B7280;
+            --c-border: rgba(0, 0, 0, 0.06);
+            --c-bg: #FAFAFA;
+            --shadow-sm: 0 5px 15px rgba(91, 63, 212, 0.05);
+            --shadow-md: 0 10px 25px rgba(91, 63, 212, 0.08);
+            --shadow-lg: 0 20px 40px rgba(91, 63, 212, 0.12);
+            --radius: 12px;
+            --max-w: 1200px;
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--c-dark);
+            background: var(--c-white);
+            line-height: 1.65;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--c-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 40px;
+            height: 72px;
+        }
+
+        .nav-cta-standalone {
+            justify-self: end;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--c-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .logo-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-dark);
+        }
+
+        .logo-tagline {
+            font-size: 9.5px;
+            color: var(--c-text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 9px 14px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--c-dark);
+            text-decoration: none;
+            position: relative;
+            background: none;
+            border-radius: 0;
+            transition: color 0.25s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 14px;
+            right: 14px;
+            height: 2px;
+            background: var(--c-primary);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--c-primary);
+            background: none;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta-btn {
+            background: var(--c-primary);
+            color: #fff !important;
+            padding: 9px 22px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+
+        .nav-cta-btn:hover {
+            background: var(--c-primary-dark) !important;
+            color: #fff !important;
+        }
+
+        .page-header {
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-border);
+            padding: 80px 40px 72px;
+            text-align: center;
+        }
+
+        .page-header-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--c-primary-light);
+            color: var(--c-primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(91, 63, 212, 0.2);
+        }
+
+        .page-badge i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.9rem, 4.5vw, 3rem);
+            font-weight: 800;
+            color: var(--c-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        .page-header h1 em {
+            font-style: italic;
+            color: var(--c-primary);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--c-text-light);
+            line-height: 1.75;
+        }
+
+        section {
+            padding: 96px 40px;
+        }
+
+        .section-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--c-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--c-dark);
+            letter-spacing: -0.025em;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--c-text-light);
+            line-height: 1.75;
+            max-width: 580px;
+        }
+
+        .section-head {
+            margin-bottom: 52px;
+        }
+
+        /* PROBLEM */
+        .problem-section {
+            background: var(--c-bg);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .problem-card {
+            background: var(--c-white);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .problem-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .prob-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--c-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-primary);
+            flex-shrink: 0;
+        }
+
+        .prob-icon i {
+            width: 22px;
+            height: 22px;
+        }
+
+        .prob-text h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--c-dark);
+            margin-bottom: 8px;
+        }
+
+        .prob-text p {
+            font-size: 0.95rem;
+            color: var(--c-text-light);
+            line-height: 1.7;
+        }
+
+        /* FORMAT */
+        .format-section {
+            background: var(--c-white);
+        }
+
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .format-item {
+            text-align: center;
+            background: var(--c-bg);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius);
+            padding: 32px 22px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .format-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .format-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: var(--c-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-primary);
+            margin: 0 auto 16px;
+        }
+
+        .format-icon i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .format-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--c-dark);
+            margin-bottom: 8px;
+        }
+
+        .format-item p {
+            font-size: 0.9rem;
+            color: var(--c-text-light);
+            line-height: 1.65;
+        }
+
+        /* MODULES */
+        .modules-section {
+            background: var(--c-bg);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .module-card {
+            background: var(--c-white);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px rgba(91, 63, 212, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(91, 63, 212, 0.1);
+            border-color: var(--c-primary);
+        }
+
+        .module-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: var(--c-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .module-icon i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .module-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--c-dark);
+            margin-bottom: 18px;
+        }
+
+        .module-card ul {
+            list-style: none;
+            flex: 1;
+        }
+
+        .module-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--c-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            color: var(--c-text-light);
+        }
+
+        .module-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .module-card ul li i {
+            width: 15px;
+            height: 15px;
+            color: var(--c-primary);
+            flex-shrink: 0;
+        }
+
+        /* CTA BAND */
+        .cta-section {
+            background: var(--c-primary);
+            padding: 88px 40px;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 44px;
+            line-height: 1.75;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            background: #fff;
+            color: var(--c-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-white i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-outline-w {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: border-color 0.25s, background 0.25s;
+        }
+
+        .btn-outline-w:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-outline-w i {
+            width: 18px;
+            height: 18px;
+        }
+
+        footer {
+            background: #0D0D1A;
+            color: rgba(255, 255, 255, 0.65);
+            padding: 72px 40px 36px;
+        }
+
+        .footer-grid {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .f-logo-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .f-logo-tagline {
+            font-size: 9.5px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .f-desc {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        .f-col h4 {
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .f-col ul {
+            list-style: none;
+        }
+
+        .f-col ul li {
+            margin-bottom: 11px;
+        }
+
+        .f-col ul li a {
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .f-col ul li a:hover {
+            color: #fff;
+        }
+
+        .f-contact-item {
+            margin-bottom: 14px;
+        }
+
+        .f-contact-item .f-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 4px;
+        }
+
+        .f-contact-item a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s;
+            font-size: 0.88rem;
+        }
+
+        .f-contact-item a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-w);
+            margin: 28px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 900px) {
+
+            .modules-grid,
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .format-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 64px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-inner,
+            .cta-section {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .page-header {
+                padding: 60px 24px 56px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">XF</div>
+                <div>
+                    <div class="logo-name">XFOLIOO</div>
+                    <div class="logo-tagline">Investor Services LLP</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="people.html">Our People</a></li>
+                <li><a href="workshops.html" class="active">Workshops</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <a href="login.html" class="nav-cta-btn nav-cta-standalone">Client Login</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-badge"><i data-lucide="presentation"></i> Financial Education</div>
+            <h1>"An Investment in Knowledge Pays the <em>Best Interest.</em>"</h1>
+            <p>Our workshops are crafted to demystify investing and empower individuals to take confident, informed
+                financial decisions.</p>
+        </div>
+    </div>
+
+    <section class="problem-section">
+        <div class="section-inner">
+            <div class="section-head">
+                <span class="section-tag">Why This Matters</span>
+                <h2 class="section-title">India is a Nation of Savers, Not Investors</h2>
+                <p class="section-sub">The financial knowledge gap is costing Indian families their long-term wealth.
+                    Here is the challenge we address.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="prob-icon"><i data-lucide="landmark"></i></div>
+                    <div class="prob-text">
+                        <h4>High Allocation to Low-Yield Assets</h4>
+                        <p>Most Indian households keep savings in fixed deposits — safe on the surface, but quietly
+                            eroding real wealth to inflation over time.</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="prob-icon"><i data-lucide="alert-triangle"></i></div>
+                    <div class="prob-text">
+                        <h4>Misconceptions About ULIPs & Insurance</h4>
+                        <p>Many investors confuse insurance with investment products, resulting in portfolios that serve
+                            neither protection nor wealth creation.</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="prob-icon"><i data-lucide="book-open"></i></div>
+                    <div class="prob-text">
+                        <h4>Low Financial Literacy Nationwide</h4>
+                        <p>Awareness of tools like SIP, STP, SWP, and asset allocation remains low. Our workshops change
+                            this — one conversation at a time.</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="prob-icon"><i data-lucide="activity"></i></div>
+                    <div class="prob-text">
+                        <h4>Fear and Inertia Around Capital Markets</h4>
+                        <p>Market volatility creates irrational fear. We address the behavioural side of investing, not
+                            just the technical mechanics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="format-section">
+        <div class="section-inner">
+            <div class="section-head">
+                <span class="section-tag">Workshop Format</span>
+                <h2 class="section-title">Designed for Real People, Not Just Professionals</h2>
+                <p class="section-sub">Every session is practical, jargon-free, and directly applicable to participants'
+                    financial lives.</p>
+            </div>
+            <div class="format-grid">
+                <div class="format-item">
+                    <div class="format-icon"><i data-lucide="clock"></i></div>
+                    <h4>Duration</h4>
+                    <p>1.5 to 3 hours per session, adaptable to the audience and objective.</p>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"><i data-lucide="users"></i></div>
+                    <h4>Group Size</h4>
+                    <p>Small, focused groups of 15–30 participants for quality interaction.</p>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"><i data-lucide="settings-2"></i></div>
+                    <h4>Customisable</h4>
+                    <p>Modules tailored to the specific needs of your organisation or group.</p>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"><i data-lucide="message-circle"></i></div>
+                    <h4>Jargon-Free</h4>
+                    <p>Complex concepts explained in simple, everyday language everyone can follow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section">
+        <div class="section-inner">
+            <div class="section-head">
+                <span class="section-tag">Workshop Modules</span>
+                <h2 class="section-title">Topics We Cover</h2>
+                <p class="section-sub">Each module is standalone or can be combined into a comprehensive financial
+                    literacy programme.</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-icon"><i data-lucide="shield"></i></div>
+                    <h3>Insurance Planning</h3>
+                    <ul>
+                        <li><i data-lucide="check"></i> Term Insurance vs. ULIPs – What you really need</li>
+                        <li><i data-lucide="check"></i> Understanding policy structures and exclusions</li>
+                        <li><i data-lucide="check"></i> Health insurance – coverage gaps to avoid</li>
+                        <li><i data-lucide="check"></i> Separating insurance from investment products</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon"><i data-lucide="trending-up"></i></div>
+                    <h3>Investment Planning</h3>
+                    <ul>
+                        <li><i data-lucide="check"></i> Mutual Funds – SIP, STP, SWP explained simply</li>
+                        <li><i data-lucide="check"></i> Asset allocation and portfolio diversification</li>
+                        <li><i data-lucide="check"></i> NFO analysis – when to participate and when not to</li>
+                        <li><i data-lucide="check"></i> Risk profiling and matching to instruments</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon"><i data-lucide="calendar-check"></i></div>
+                    <h3>Retirement Planning</h3>
+                    <ul>
+                        <li><i data-lucide="check"></i> How much is enough? Building the retirement corpus</li>
+                        <li><i data-lucide="check"></i> Inflation and longevity risk in retirement</li>
+                        <li><i data-lucide="check"></i> NPS, EPF, and mutual fund strategies</li>
+                        <li><i data-lucide="check"></i> Systematic withdrawal plans for steady income</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon"><i data-lucide="file-text"></i></div>
+                    <h3>Tax Planning</h3>
+                    <ul>
+                        <li><i data-lucide="check"></i> Section 80C – maximising deductions effectively</li>
+                        <li><i data-lucide="check"></i> ELSS vs. other tax-saving instruments</li>
+                        <li><i data-lucide="check"></i> Capital gains taxation – LTCG and STCG</li>
+                        <li><i data-lucide="check"></i> Tax-efficient portfolio structuring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <div class="cta-inner">
+            <h2>Ready to Bring Financial Literacy to Your Organisation?</h2>
+            <p>Whether for your employees, community group, or corporate team — we'll design a session that makes an
+                impact.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn-white"><i data-lucide="presentation"></i> Organise a Workshop</a>
+                <a href="contact.html" class="btn-outline-w"><i data-lucide="calendar"></i> Schedule an Expert Call</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">XF</div>
+                    <div>
+                        <div class="f-logo-name">XFOLIOO</div>
+                        <div class="f-logo-tagline">Investor Services LLP</div>
+                    </div>
+                </a>
+                <p class="f-desc">A disciplined, evidence-based financial advisory firm committed to long-term wealth
+                    creation across India.</p>
+            </div>
+            <div class="f-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="people.html">Our People</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Client Login</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Modules</h4>
+                <ul>
+                    <li><a href="#">Insurance Planning</a></li>
+                    <li><a href="#">Investment Planning</a></li>
+                    <li><a href="#">Retirement Planning</a></li>
+                    <li><a href="#">Tax Planning</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <div class="f-contact-item">
+                    <div class="f-label">Phone</div><a href="tel:+919618521123">+91 96185 21123</a><a
+                        href="tel:+919611688851">+91 96116 88851</a>
+                </div>
+                <div class="f-contact-item">
+                    <div class="f-label">Email</div><a href="mailto:ug@xfolioo.com">ug@xfolioo.com</a><a
+                        href="mailto:shahul@xfolioo.com">shahul@xfolioo.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 XFOLIOO Investor Services LLP. All rights reserved.</p>
+            <p>AMFI Reg. No: 312814 · Mutual Fund investments are subject to market risks.</p>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

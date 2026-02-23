@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our People – XFOLIOO Investor Services LLP</title>
+    <meta name="description"
+        content="Meet Udaya Ganti and Shahul Hameed – the founders of XFOLIOO Investor Services LLP." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --c-primary: #5B3FD4;
+            --c-primary-dark: #4528B5;
+            --c-primary-light: #EFEAFE;
+            --c-white: #FFFFFF;
+            --c-dark: #111827;
+            --c-text-light: #6B7280;
+            --c-border: rgba(0, 0, 0, 0.06);
+            --c-bg: #FAFAFA;
+            --shadow-sm: 0 5px 15px rgba(91, 63, 212, 0.05);
+            --shadow-md: 0 10px 25px rgba(91, 63, 212, 0.08);
+            --shadow-lg: 0 20px 40px rgba(91, 63, 212, 0.12);
+            --radius: 12px;
+            --max-w: 1200px;
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--c-dark);
+            background: var(--c-white);
+            line-height: 1.65;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--c-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 40px;
+            height: 72px;
+        }
+
+        .nav-cta-standalone {
+            justify-self: end;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--c-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .logo-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-dark);
+        }
+
+        .logo-tagline {
+            font-size: 9.5px;
+            color: var(--c-text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 9px 14px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--c-dark);
+            text-decoration: none;
+            position: relative;
+            background: none;
+            border-radius: 0;
+            transition: color 0.25s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 14px;
+            right: 14px;
+            height: 2px;
+            background: var(--c-primary);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--c-primary);
+            background: none;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta-btn {
+            background: var(--c-primary);
+            color: #fff !important;
+            padding: 9px 22px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+
+        .nav-cta-btn:hover {
+            background: var(--c-primary-dark) !important;
+            color: #fff !important;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-border);
+            padding: 80px 40px 72px;
+            text-align: center;
+        }
+
+        .page-header-inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--c-primary-light);
+            color: var(--c-primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(91, 63, 212, 0.2);
+        }
+
+        .page-badge i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            color: var(--c-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--c-text-light);
+            line-height: 1.75;
+        }
+
+        /* PROFILES SECTION */
+        .profiles-section {
+            padding: 80px 40px;
+            background: var(--c-white);
+        }
+
+        .section-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        /* Full-width horizontal card */
+        .profile-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            background: var(--c-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(91, 63, 212, 0.10);
+            margin-bottom: 48px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .profile-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-card:hover {
+            box-shadow: 0 8px 40px rgba(91, 63, 212, 0.16);
+            transform: translateY(-4px);
+        }
+
+        /* LEFT — photo + identity */
+        .profile-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 32px 40px;
+            background: var(--c-white);
+            border-right: 1px solid rgba(91, 63, 212, 0.08);
+            text-align: center;
+            gap: 16px;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--c-primary-light);
+            box-shadow: 0 6px 24px rgba(91, 63, 212, 0.15);
+        }
+
+        .profile-photo-placeholder {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--c-primary-light);
+            border: 4px solid rgba(91, 63, 212, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-primary);
+            font-size: 3rem;
+            font-weight: 800;
+            box-shadow: 0 6px 24px rgba(91, 63, 212, 0.15);
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--c-dark);
+            line-height: 1.2;
+        }
+
+        .profile-role {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--c-primary);
+        }
+
+        .profile-company {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--c-text-light);
+        }
+
+        /* RIGHT — lavender bio panel */
+        .profile-right {
+            background: #EDE9FA;
+            padding: 44px 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .profile-bio-text {
+            font-size: 1rem;
+            color: #3D3D5C;
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        .profile-quote {
+            font-size: 1rem;
+            font-weight: 700;
+            font-style: italic;
+            color: #2D1F6E;
+            line-height: 1.65;
+            text-align: center;
+        }
+
+        .profile-bio-note {
+            font-size: 0.97rem;
+            color: #3D3D5C;
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        /* VALUES */
+        .values-section {
+            background: var(--c-bg);
+            padding: 80px 40px;
+            border-top: 1px solid var(--c-border);
+        }
+
+        .values-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--c-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--c-dark);
+            letter-spacing: -0.025em;
+            margin-bottom: 14px;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--c-text-light);
+            line-height: 1.75;
+            max-width: 540px;
+            margin: 0 auto 48px;
+        }
+
+        .values-chips {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .value-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--c-white);
+            border: 1px solid var(--c-border);
+            color: var(--c-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 22px;
+            border-radius: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+        }
+
+        .value-chip:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--c-primary);
+            transform: translateY(-2px);
+        }
+
+        .value-chip i {
+            width: 16px;
+            height: 16px;
+            color: var(--c-primary);
+        }
+
+        footer {
+            background: #0D0D1A;
+            color: rgba(255, 255, 255, 0.65);
+            padding: 72px 40px 36px;
+        }
+
+        .footer-grid {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .f-logo-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .f-logo-tagline {
+            font-size: 9.5px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .f-desc {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        .f-col h4 {
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .f-col ul {
+            list-style: none;
+        }
+
+        .f-col ul li {
+            margin-bottom: 11px;
+        }
+
+        .f-col ul li a {
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .f-col ul li a:hover {
+            color: #fff;
+        }
+
+        .f-contact-item {
+            margin-bottom: 14px;
+        }
+
+        .f-contact-item .f-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 4px;
+        }
+
+        .f-contact-item .f-val {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        .f-contact-item a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .f-contact-item a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-w);
+            margin: 28px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .profiles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-inner {
+                padding: 0 24px;
+            }
+
+            .page-header {
+                padding: 60px 24px 56px;
+            }
+
+            .profiles-section {
+                padding: 64px 24px;
+            }
+
+            .profile-body {
+                padding: 24px;
+            }
+
+            .profile-header {
+                padding: 28px 24px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .values-section {
+                padding: 64px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">XF</div>
+                <div>
+                    <div class="logo-name">XFOLIOO</div>
+                    <div class="logo-tagline">Investor Services LLP</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="people.html" class="active">Our People</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <a href="login.html" class="nav-cta-btn nav-cta-standalone">Client Login</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-badge"><i data-lucide="users"></i> Our Team</div>
+            <h1>Meet Our Experts</h1>
+            <p>Decades of capital markets experience, channelled into a behaviour-first, long-term advisory practice.
+            </p>
+        </div>
+    </div>
+
+    <section class="profiles-section">
+        <div class="section-inner">
+
+            <!-- Udaya Ganti -->
+            <div class="profile-card">
+                <div class="profile-left">
+                    <div class="profile-photo-placeholder">UG</div>
+                    <div class="profile-name">Udaya Ganti</div>
+                    <div class="profile-role">Founder</div>
+                    <div class="profile-company">XFOLIOO Investor Services</div>
+                </div>
+                <div class="profile-right">
+                    <p class="profile-bio-text"><strong>Udaya</strong> has nearly 20 years of experience in Capital
+                        Markets. In his previous stint with Bandhan AMC (Erstwhile IDFC AMC) as Sr. Vice-president, he
+                        met more than 1000 Registered Advisors, Bankers &amp; MFDs, Financial Planners, Family offices,
+                        Corporate investors and UHNI investors. Interactions with these partners has helped him
+                        enormously to change his thinking and also helped many partners and investors with solutions.
+                    </p>
+                    <p class="profile-quote">&ldquo;Udaya assists clients in achieving their financial goals by offering
+                        personalized product services tailored to their individual needs, more importantly by guiding
+                        investors to approach investments with right behaviour.&rdquo;</p>
+                    <p class="profile-bio-note">Done many workshops for Investors, Mutual Fund Distributors, Pvt- Wealth
+                        RMs, and also on various topics like Equity, Debt and Behavioral Finance Etc.</p>
+                    <p class="profile-bio-note">Udaya is a voracious reader and strongly believes that 90% of investment
+                        performance comes from investor behaviour and less than 10% from product selection.</p>
+                </div>
+            </div>
+
+            <!-- Shahul Hameed -->
+            <div class="profile-card">
+                <div class="profile-left">
+                    <div class="profile-photo-placeholder">SH</div>
+                    <div class="profile-name">Shahul Hameed</div>
+                    <div class="profile-role">Co-Founder</div>
+                    <div class="profile-company">XFOLIOO Investor Services</div>
+                </div>
+                <div class="profile-right">
+                    <p class="profile-bio-text"><strong>Shahul</strong> brings 17+ years of capital markets experience,
+                        working closely with Relationship Managers, MFDs, and Wealth Managers across the financial
+                        advisory ecosystem.</p>
+                    <p class="profile-quote">&ldquo;Financial clarity is not a luxury. Every individual deserves to
+                        understand where their money is going and why &mdash; and we are here to guide that
+                        journey.&rdquo;</p>
+                    <p class="profile-bio-note">Shahul brings a rare combination of technical depth and creative
+                        delivery to financial education. His innovative approach to explaining complex financial
+                        concepts in simple, relatable terms makes him a trusted advisor and sought-after workshop
+                        facilitator.</p>
+                    <p class="profile-bio-note">Known for behaviour-focused guidance, unique workshop delivery, and
+                        simplifying complex market concepts for every kind of investor.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="values-section">
+        <div class="values-inner">
+            <span class="section-tag">Our Values</span>
+            <h2 class="section-title">What Drives Every Decision We Make</h2>
+            <p class="section-sub">The principles that guide every client relationship and investment recommendation.
+            </p>
+            <div class="values-chips">
+                <div class="value-chip"><i data-lucide="handshake"></i> Client-First Approach</div>
+                <div class="value-chip"><i data-lucide="bar-chart-2"></i> Evidence-Based Decisions</div>
+                <div class="value-chip"><i data-lucide="brain"></i> Behaviour-Focused Advisory</div>
+                <div class="value-chip"><i data-lucide="leaf"></i> Long-Term Thinking</div>
+                <div class="value-chip"><i data-lucide="shield"></i> Regulatory Compliance</div>
+                <div class="value-chip"><i data-lucide="message-circle"></i> Transparent Communication</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">XF</div>
+                    <div>
+                        <div class="f-logo-name">XFOLIOO</div>
+                        <div class="f-logo-tagline">Investor Services LLP</div>
+                    </div>
+                </a>
+                <p class="f-desc">A disciplined, evidence-based financial advisory firm committed to long-term
+                    wealth
+                    creation for families and individuals across India.</p>
+            </div>
+            <div class="f-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="people.html">Our People</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Client Login</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Mutual Funds</a></li>
+                    <li><a href="#">PMS Services</a></li>
+                    <li><a href="#">Goal-Based Planning</a></li>
+                    <li><a href="#">Tax Planning</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <div class="f-contact-item">
+                    <div class="f-label">Phone</div><a href="tel:+919618521123">+91 96185 21123</a><a
+                        href="tel:+919611688851">+91 96116 88851</a>
+                </div>
+                <div class="f-contact-item">
+                    <div class="f-label">Email</div><a href="mailto:ug@xfolioo.com">ug@xfolioo.com</a><a
+                        href="mailto:shahul@xfolioo.com">shahul@xfolioo.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 XFOLIOO Investor Services LLP. All rights reserved.</p>
+            <p>AMFI Reg. No: 312814 · Mutual Fund investments are subject to market risks.</p>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

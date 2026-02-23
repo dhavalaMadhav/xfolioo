@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Login – XFOLIOO Investor Services LLP</title>
+    <meta name="description" content="Access your XFOLIOO portfolio reports through the secure client portal." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --c-primary: #5B3FD4;
+            --c-primary-dark: #4528B5;
+            --c-primary-light: #EFEAFE;
+            --c-white: #FFFFFF;
+            --c-dark: #111827;
+            --c-text-light: #6B7280;
+            --c-border: rgba(0, 0, 0, 0.06);
+            --c-bg: #FAFAFA;
+            --shadow-sm: 0 5px 15px rgba(91, 63, 212, 0.05);
+            --shadow-md: 0 10px 25px rgba(91, 63, 212, 0.08);
+            --shadow-lg: 0 20px 40px rgba(91, 63, 212, 0.12);
+            --radius: 12px;
+            --max-w: 1200px;
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--c-dark);
+            background: var(--c-bg);
+            line-height: 1.65;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--c-border);
+        }
+
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 40px;
+            height: 72px;
+        }
+
+        .nav-cta-standalone {
+            justify-self: end;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--c-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .logo-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-dark);
+        }
+
+        .logo-tagline {
+            font-size: 9.5px;
+            color: var(--c-text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 9px 14px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--c-dark);
+            text-decoration: none;
+            position: relative;
+            background: none;
+            border-radius: 0;
+            transition: color 0.25s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 14px;
+            right: 14px;
+            height: 2px;
+            background: var(--c-primary);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--c-primary);
+            background: none;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta-btn {
+            background: var(--c-primary);
+            color: #fff !important;
+            padding: 9px 22px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+
+        .nav-cta-btn:hover {
+            background: var(--c-primary-dark) !important;
+            color: #fff !important;
+        }
+
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+        }
+
+        .login-card {
+            background: var(--c-white);
+            border: 1px solid var(--c-border);
+            border-radius: 16px;
+            padding: 60px 52px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .login-icon-wrap {
+            width: 76px;
+            height: 76px;
+            background: var(--c-primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-primary);
+            margin: 0 auto 32px;
+            border: 1.5px solid rgba(91, 63, 212, 0.2);
+        }
+
+        .login-icon-wrap i {
+            width: 36px;
+            height: 36px;
+        }
+
+        .login-card h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--c-dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .login-card .subtitle {
+            font-size: 1rem;
+            color: var(--c-text-light);
+            line-height: 1.75;
+            margin-bottom: 36px;
+        }
+
+        .notice-box {
+            background: var(--c-primary-light);
+            border: 1px solid rgba(91, 63, 212, 0.2);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 32px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .notice-box i {
+            width: 18px;
+            height: 18px;
+            color: var(--c-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .notice-box span {
+            font-size: 0.92rem;
+            color: var(--c-dark);
+            line-height: 1.65;
+        }
+
+        .btn-login {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 28px;
+            background: var(--c-primary);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: var(--font);
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 16px;
+        }
+
+        .btn-login:hover {
+            background: var(--c-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-login i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .login-help {
+            font-size: 0.9rem;
+            color: var(--c-text-light);
+        }
+
+        .login-help a {
+            color: var(--c-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-help a:hover {
+            text-decoration: underline;
+        }
+
+        .login-divider {
+            border: none;
+            border-top: 1px solid var(--c-border);
+            margin: 28px 0;
+        }
+
+        .amfi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--c-text-light);
+        }
+
+        .amfi-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        footer {
+            background: #0D0D1A;
+            padding: 22px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-inner {
+                padding: 0 24px;
+            }
+
+            .login-card {
+                padding: 40px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">XF</div>
+                <div>
+                    <div class="logo-name">XFOLIOO</div>
+                    <div class="logo-tagline">Investor Services LLP</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="people.html">Our People</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <a href="login.html" class="nav-cta-btn nav-cta-standalone active">Client Login</a>
+        </div>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-icon-wrap"><i data-lucide="lock"></i></div>
+            <h1>Client Access Portal</h1>
+            <p class="subtitle">Existing clients can access their portfolio reports, statements, and investment updates
+                through our secure platform.</p>
+            <div class="notice-box">
+                <i data-lucide="info"></i>
+                <span>You will be redirected to a secure, third-party platform for authentication. Your credentials are
+                    managed separately from this website.</span>
+            </div>
+            <a href="#" class="btn-login" id="loginBtn" onclick="handleLogin(event)">
+                <i data-lucide="external-link"></i> Proceed to Login Portal
+            </a>
+            <p class="login-help">New to XFOLIOO? <a href="contact.html">Contact us</a> to get started.</p>
+            <hr class="login-divider" />
+            <div class="amfi-badge"><span class="amfi-dot"></span> AMFI Registered Distributor – ARN 312814</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 XFOLIOO Investor Services LLP &nbsp;·&nbsp; Mutual Fund investments are subject to market risks. Read
+            all scheme related documents carefully.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.innerHTML = '<i data-lucide="loader"></i> Redirecting…';
+            lucide.createIcons();
+            btn.style.opacity = '0.75';
+            btn.style.pointerEvents = 'none';
+            setTimeout(() => {
+                window.open('#', '_blank'); // Replace with actual portal URL
+                btn.innerHTML = '<i data-lucide="external-link"></i> Proceed to Login Portal';
+                lucide.createIcons();
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }, 1400);
+        }
+    </script>
+</body>
+
+</html>
