@@ -5,44 +5,42 @@ import logo from '../assets/xfolioo.png';
 import './Navbar.css';
 
 export default function Navbar() {
-    const [isDark, setIsDark] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            const darkSections = document.querySelectorAll('.about, .footer');
-            let currentlyDark = false;
-            // header is roughly at top: 0 to 100px. Check 50px line.
-            const navCenterY = 50;
+            const currentScrollY = window.scrollY;
 
-            darkSections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top <= navCenterY && rect.bottom >= navCenterY) {
-                    currentlyDark = true;
-                }
-            });
+            // If scrolling down and we aren't at the very top, hide the navbar
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false);
+            }
+            // If scrolling up, show the navbar
+            else if (currentScrollY < lastScrollY) {
+                setIsVisible(true);
+            }
 
-            setIsDark(currentlyDark);
+            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        // initial check
-        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [lastScrollY]);
 
     return (
-        <div className={`nav-outer ${isDark ? 'nav-dark' : ''}`}>
+        <div className={`nav-outer ${isVisible ? '' : 'nav-hidden'}`}>
             <nav>
                 <div className="nav-inner">
                     <Link to="/" className="logo">
                         <img src={logo} alt="XFOLIOO logo" className="logo-img" />
                     </Link>
                     <ul className="nav-links">
-                        <li><NavLink to="/" end>Home</NavLink></li>
-                        <li><NavLink to="/people">Our People</NavLink></li>
-                        <li><NavLink to="/workshops">Workshops</NavLink></li>
-                        <li><NavLink to="/contact">Contact</NavLink></li>
-                        <li><NavLink to="/privacy">Privacy</NavLink></li>
+                        <li><NavLink to="/" end data-text="Home"><span>Home</span></NavLink></li>
+                        <li><NavLink to="/people" data-text="Our People"><span>Our People</span></NavLink></li>
+                        <li><NavLink to="/workshops" data-text="Workshops"><span>Workshops</span></NavLink></li>
+                        <li><NavLink to="/contact" data-text="Contact"><span>Contact</span></NavLink></li>
+                        <li><NavLink to="/privacy" data-text="Privacy"><span>Privacy</span></NavLink></li>
                     </ul>
                     <Link to="/login" className="nav-cta-btn nav-cta-standalone">
                         Client Login <ArrowUpRight size={16} strokeWidth={2.5} />

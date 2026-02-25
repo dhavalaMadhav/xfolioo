@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/xfolioo.png';
 import './Footer.css';
 
 export default function Footer() {
     return (
         <footer>
             <div className="footer-grid">
-                <div>
-                    <Link to="/" className="logo">
-                        <div className="logo-mark">XF</div>
-                        <div>
-                            <div className="f-logo-name">XFOLIOO</div>
-                            <div className="f-logo-tagline">Investor Services LLP</div>
-                        </div>
+                <div className="footer-col brand-col">
+                    <Link to="/" className="f-logo">
+                        <img src={logo} alt="XFOLIOO logo" className="f-logo-img" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
                     </Link>
-                    <p className="f-desc">A disciplined, evidence-based financial advisory firm committed to long-term wealth creation for families and individuals across India.</p>
+                    <p className="f-desc">Independent wealth management firm providing evidence-based advisory and structuring for long-term real wealth creation.</p>
                 </div>
                 <div className="f-col">
                     <h4>Navigate</h4>
