@@ -11,10 +11,9 @@ export default function Workshops() {
     return (
         <main>
             {/* PAGE HEADER */}
-            <div className="page-header">
-                <div className="page-header-inner" style={{ maxWidth: '700px' }}>
-                    <div className="page-badge"><Presentation size={14} /> Financial Education</div>
-                    <h1>"An Investment in Knowledge Pays the <em>Best Interest.</em>"</h1>
+            <div className="page-header custom-people-header">
+                <div className="page-header-inner align-left">
+                    <h1>"An Investment in Knowledge Pays the <span className="accent">Best Interest.</span>"</h1>
                     <p>Our workshops are crafted to demystify investing and empower individuals to take confident, informed financial decisions.</p>
                 </div>
             </div>

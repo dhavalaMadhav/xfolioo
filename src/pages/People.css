@@ -53,10 +53,15 @@
 }
 
 .profile-name {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    /* Much larger */
+    font-weight: 900;
+    /* Bolder */
     color: var(--c-dark);
     line-height: 1.2;
+    letter-spacing: -0.02em;
+    /* Broader feel */
+    text-transform: uppercase;
 }
 
 .profile-role {
@@ -73,9 +78,114 @@
     color: var(--c-text-light);
 }
 
+/* CUSTOM UDAYA DESIGN */
+.profile-card.custom-udaya-card {
+    box-shadow: none !important;
+    background: transparent !important;
+    align-items: center;
+    grid-template-columns: 460px 1fr;
+    overflow: visible !important;
+    /* Prevents the top of the strip from being cut by the card wrapper */
+}
+
+@media (max-width: 900px) {
+    .profile-card.custom-udaya-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.custom-udaya-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.custom-udaya-left {
+    border-right: none !important;
+    border-bottom: none !important;
+    background: transparent !important;
+}
+
+.custom-udaya-right {
+    background: transparent !important;
+}
+
+.profile-photo-wrapper {
+    position: relative;
+    width: 400px;
+    /* Very big */
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Ensures image sits at the bottom */
+    clip-path: inset(-150% -150% 0 -150%);
+    /* Allows top and sides to overflow normally but perfectly clips the bottom edge */
+}
+
+.violet-strip {
+    position: absolute;
+    bottom: -20px;
+    /* Moved a little down further */
+    left: 40%;
+    /* Moved left */
+    transform: translateX(-50%) rotate(-30deg);
+    /* Flipped by vertical axis */
+    width: 250px;
+    /* Very broader */
+    height: 120%;
+    /* Reduced height */
+    background-color: #8A2BE2;
+    /* Violet color */
+    border-radius: 125px;
+    /* Perfectly circular end (half of width) */
+    z-index: 0;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    display: block;
+    object-fit: cover;
+}
+
+/* CUSTOM SHAHUL INVERTED LAYOUT */
+.custom-shahul-card {
+    /* Reverse the grid columns so text is left, image is right */
+    grid-template-columns: 1fr 460px !important;
+}
+
+.custom-shahul-image-col {
+    /* Send the image column to the second position in the visual layout */
+    order: 2;
+}
+
+.custom-shahul-text-col {
+    /* Send the text column to the first position */
+    order: 1;
+}
+
+@media (max-width: 900px) {
+    .profile-card.custom-shahul-card {
+        grid-template-columns: 1fr !important;
+    }
+
+    .custom-shahul-image-col {
+        order: 1;
+        /* For mobile keep image on top usually, or order 2 to keep bottom */
+    }
+
+    .custom-shahul-text-col {
+        order: 2;
+    }
+}
+
 /* RIGHT */
 .profile-right {
-    background: #EDE9FA;
+    background: var(--c-blush);
+    /* Using blush token directly from Home bento theme instead of #EDE9FA */
     padding: 44px 48px;
     display: flex;
     flex-direction: column;
@@ -94,7 +204,7 @@
     font-size: 1rem;
     font-weight: 700;
     font-style: italic;
-    color: #2D1F6E;
+    color: var(--c-primary);
     line-height: 1.65;
     text-align: center;
 }
@@ -108,9 +218,29 @@
 
 /* VALUES */
 .values-section {
-    background: var(--c-bg);
-    padding: 80px 40px;
-    border-top: 1px solid var(--c-border);
+    position: relative;
+    background: #000000;
+    /* Strict black instead of navy */
+    padding: 160px 40px 120px;
+    color: #ffffff;
+}
+
+/* Top block shape transition (inverted from Home bottom scoop) */
+.values-section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+    pointer-events: none;
+    /* Same SVG used in home page but pointing down instead of up (achieved via scaleY(-1)) */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,80 L1440,80 L1440,0 L1150,0 L1150,60 L900,60 L900,0 L450,0 L450,60 L200,60 L200,0 L0,0 Z'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    transform: scaleY(-1);
 }
 
 .values-inner {
@@ -119,9 +249,24 @@
     text-align: center;
 }
 
+.values-section .section-tag {
+    color: var(--c-primary-light);
+}
+
+.values-section .section-title {
+    color: #ffffff;
+    font-size: 3.5rem;
+    /* Match about-title */
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
 .values-inner .section-sub {
-    max-width: 540px;
+    max-width: 650px;
     margin: 0 auto 48px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
 }
 
 .values-chips {
@@ -135,25 +280,37 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: var(--c-white);
-    border: 1px solid var(--c-border);
-    color: var(--c-dark);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     font-size: 0.95rem;
     font-weight: 500;
     padding: 12px 22px;
     border-radius: 40px;
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    box-shadow: none;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s, background 0.3s;
 }
 
 .value-chip:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px rgba(138, 43, 226, 0.2);
     border-color: var(--c-primary);
+    background: rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
 }
 
 .value-chip svg {
     color: var(--c-primary);
+}
+
+/* Values Divider Line */
+.values-divider {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 20%, rgba(255, 255, 255, 0.4) 80%, transparent);
 }
 
 @media (max-width: 900px) {

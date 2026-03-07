@@ -611,7 +611,8 @@
     height: 80px;
     z-index: 10;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath fill='%23eddbe9' d='M0,80 L1440,80 L1440,0 L1150,0 L1150,60 L900,60 L900,0 L450,0 L450,60 L200,60 L200,0 L0,0 Z'/%3E%3C/svg%3E");
+    /* Violet transition using hex value for --c-primary-light (#8A2BE2) */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath fill='%238A2BE2' d='M0,80 L1440,80 L1440,0 L1150,0 L1150,60 L900,60 L900,0 L450,0 L450,60 L200,60 L200,0 L0,0 Z'/%3E%3C/svg%3E");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -743,7 +744,8 @@
 
 /* ── BENTO SECTION (India's Wealth) ── */
 .bento-section {
-    background-color: var(--c-blush);
+    background-color: var(--c-primary);
+    /* Pure violet */
     padding: 100px 0;
 }
 
@@ -764,14 +766,16 @@
 }
 
 .bento-title {
-    color: #000;
+    color: #ffffff;
+    /* Inverted for dark theme */
     /* Font size and weight are inherited from .about-title */
 }
 
 .bento-sub {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #000;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #ffffff;
+    /* pure white */
     line-height: 1.4;
     margin-bottom: 40px;
     max-width: 90%;
@@ -822,19 +826,25 @@
 }
 
 .bento-card {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    /* Translucent dark pane */
     padding: 32px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    /* Minimal shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Deepened shadow for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle glass edge */
+    border-radius: var(--radius-md);
+    /* Add soft corners if not inherited */
 }
 
 .bento-stat-num {
     font-size: 3rem;
     font-weight: 900;
-    color: #000;
+    color: #ffffff;
+    /* Pure white against the light violet */
     line-height: 1;
     margin-bottom: 12px;
 }
@@ -844,12 +854,14 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     margin-bottom: 20px;
+    border-radius: var(--radius-sm);
 }
 
 .bento-stat-desc {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #000;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    /* Elevated contrast against dark translucent pane */
     line-height: 1.4;
 }
 

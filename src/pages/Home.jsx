@@ -139,8 +139,8 @@ export default function Home() {
                 <div className="hero-inner">
                     <div className="hero-content">
                         <h1 className="scroll-reveal">
-                            <span className="title-quote">&ldquo;</span>The Fastest Way to Get Rich
-                            <br />is to <span className="accent">Go Slow.<span className="title-quote">&rdquo;</span></span>
+                            <span className="title-quote">"</span>The Fastest Way to Get Rich
+                            <br />is to <span className="accent">Go Slow.<span className="title-quote">"</span></span>
                         </h1>
                         <p className="scroll-reveal delay-1">We are a personal investment services firm dedicated to helping families reach their financial goals through disciplined, long-term wealth creation strategies.</p>
                         <div className="hero-btns scroll-reveal delay-2">
@@ -328,7 +328,7 @@ export default function Home() {
                     <div className="literacy-bento">
                         {/* 1. Top Left - Title Block (Span 2) */}
                         <div className="bento-title-block scroll-reveal">
-                            <h2 className="bento-title about-title title-dark animate-line" style={{ marginBottom: '24px' }}><span>India's <span className="highlight">wealth</span> is trapped in the wrong places.</span></h2>
+                            <h2 className="bento-title about-title title-white animate-line" style={{ marginBottom: '24px' }}><span>India's <span className="highlight">wealth</span> is trapped in the wrong places.</span></h2>
                             <p className="bento-sub">Most Indian households are unknowingly losing purchasing power to inflation every year. Staying on the sidelines is the real risk.</p>
                             <Link to="/contact" className="bento-btn">GET STARTED &rarr;</Link>
                         </div>
