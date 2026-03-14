@@ -53,21 +53,20 @@
 }
 
 .profile-name {
-    font-size: 2.2rem;
-    /* Much larger */
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
     font-weight: 900;
-    /* Bolder */
     color: var(--c-dark);
     line-height: 1.2;
     letter-spacing: -0.02em;
-    /* Broader feel */
     text-transform: uppercase;
 }
 
 .profile-role {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--c-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .profile-company {
@@ -111,35 +110,27 @@
 
 .profile-photo-wrapper {
     position: relative;
-    width: 400px;
-    /* Very big */
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto 20px auto;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* Ensures image sits at the bottom */
     clip-path: inset(-150% -150% 0 -150%);
-    /* Allows top and sides to overflow normally but perfectly clips the bottom edge */
 }
 
 .violet-strip {
     position: absolute;
     bottom: -20px;
-    /* Moved a little down further */
-    left: 40%;
-    /* Moved left */
-    transform: translateX(-50%) rotate(-30deg);
-    /* Flipped by vertical axis */
+    left: 65%;
+    transform: translateX(-50%) rotate(-30deg) scaleY(0);
+    transform-origin: bottom center;
     width: 250px;
-    /* Very broader */
     height: 120%;
-    /* Reduced height */
     background-color: #8A2BE2;
-    /* Violet color */
     border-radius: 125px;
-    /* Perfectly circular end (half of width) */
     z-index: 0;
+    will-change: transform;
 }
 
 .profile-photo {
@@ -220,9 +211,9 @@
 .values-section {
     position: relative;
     background: #000000;
-    /* Strict black instead of navy */
     padding: 160px 40px 120px;
     color: #ffffff;
+    overflow: hidden;
 }
 
 /* Top block shape transition (inverted from Home bottom scoop) */
@@ -255,7 +246,7 @@
 
 .values-section .section-title {
     color: #ffffff;
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     /* Match about-title */
     font-weight: 900;
     line-height: 1.2;
@@ -288,7 +279,9 @@
     padding: 12px 22px;
     border-radius: 40px;
     box-shadow: none;
-    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s, background 0.3s;
+    /* chip animation: set will-change for smooth GPU compositing */
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+    will-change: transform, opacity;
 }
 
 .value-chip:hover {
@@ -327,14 +320,41 @@
 
 @media (max-width: 640px) {
     .profiles-section {
-        padding: 64px 24px;
+        padding: 48px 16px;
     }
 
     .values-section {
-        padding: 64px 24px;
+        padding: 80px 16px 60px;
     }
 
-    .profile-right {
-        padding: 32px 24px;
+    /* Left-align and clip chip overflow for animation */
+    .values-chips {
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .values-section .section-title,
+    .values-section .section-sub,
+    .values-section .section-tag {
+        text-align: left;
+    }
+
+    .values-section .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+    }
+
+    .value-chip {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+
+    /* Reduce violet strip width behind profile photos */
+    .violet-strip {
+        width: 130px;
+    }
+
+    /* Hide extra bio paragraphs so content is concise on mobile */
+    .hide-on-mobile {
+        display: none;
     }
 }

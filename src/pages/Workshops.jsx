@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Presentation, Landmark, AlertTriangle, BookOpen, Activity,
@@ -8,12 +9,30 @@ import {
 import './Workshops.css';
 
 export default function Workshops() {
+    useEffect(() => {
+        const onScroll = () => {
+            const targets = document.querySelectorAll('.animate-line');
+            const windowHeight = window.innerHeight;
+            targets.forEach(target => {
+                const rect = target.getBoundingClientRect();
+                let progress = (windowHeight - rect.top) / windowHeight;
+                progress = (progress * 1.5) - 0.2;
+                progress = Math.max(0, Math.min(1, progress));
+                target.style.setProperty('--scroll-scale', progress.toFixed(3));
+            });
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initial state
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <main>
             {/* PAGE HEADER */}
             <div className="page-header custom-people-header">
                 <div className="page-header-inner align-left">
-                    <h1>"An Investment in Knowledge Pays the <span className="accent">Best Interest.</span>"</h1>
+                    <h1>"An Investment in Knowledge Pays the <span className="accent" style={{ textDecoration: 'underline' }}><span className="roll-text" data-text="Best Interest."><span>Best Interest.</span></span></span>"</h1>
                     <p>Our workshops are crafted to demystify investing and empower individuals to take confident, informed financial decisions.</p>
                 </div>
             </div>
@@ -23,7 +42,7 @@ export default function Workshops() {
                 <div className="section-inner">
                     <div className="section-head">
                         <span className="section-tag">Why This Matters</span>
-                        <h2 className="section-title">India is a Nation of Savers, Not Investors</h2>
+                        <h2 className="section-title animate-line title-white">India is a Nation of Savers, Not Investors</h2>
                         <p className="section-sub">The financial knowledge gap is costing Indian families their long-term wealth. Here is the challenge we address.</p>
                     </div>
                     <div className="problem-grid">
@@ -64,7 +83,7 @@ export default function Workshops() {
                 <div className="section-inner">
                     <div className="section-head">
                         <span className="section-tag">Workshop Format</span>
-                        <h2 className="section-title">Designed for Real People, Not Just Professionals</h2>
+                        <h2 className="section-title animate-line title-dark">Designed for Real People, Not Just Professionals</h2>
                         <p className="section-sub">Every session is practical, jargon-free, and directly applicable to participants' financial lives.</p>
                     </div>
                     <div className="format-grid">
@@ -97,7 +116,7 @@ export default function Workshops() {
                 <div className="section-inner">
                     <div className="section-head">
                         <span className="section-tag">Workshop Modules</span>
-                        <h2 className="section-title">Topics We Cover</h2>
+                        <h2 className="section-title animate-line title-white">Topics We Cover</h2>
                         <p className="section-sub">Each module is standalone or can be combined into a comprehensive financial literacy programme.</p>
                     </div>
                     <div className="modules-grid">
@@ -151,8 +170,8 @@ export default function Workshops() {
                     <h2>Ready to Organise a Workshop?</h2>
                     <p>Whether for your organisation, team, or community, we'll design a session that makes a real difference.</p>
                     <div className="cta-btns">
-                        <Link to="/contact" className="btn-white"><Phone size={18} /> Contact Us to Book</Link>
-                        <Link to="/people" className="btn-outline-w"><ArrowRight size={18} /> Meet Our Facilitators</Link>
+                        <Link to="/contact" className="btn-black"><Phone size={18} /> <span className="roll-text" data-text="Contact Us to Book"><span>Contact Us to Book</span></span></Link>
+                        <Link to="/people" className="btn-outline-w"><ArrowRight size={18} /> <span className="roll-text" data-text="Meet Our Facilitators"><span>Meet Our Facilitators</span></span></Link>
                     </div>
                 </div>
             </section>

@@ -38,8 +38,12 @@ nav {
     height: 80px;
 }
 
-.nav-cta-standalone {
-    justify-self: end;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    /* Push the action box strictly to the right edge */
 }
 
 /* ── LOGO ── */
@@ -173,6 +177,64 @@ nav {
     color: #000000 !important;
 }
 
+/* ── MOBILE MENU BUTTON ── */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── MOBILE DROPDOWN ── */
+.mobile-menu {
+    position: relative;
+    /* Right below nav-inner */
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid rgba(237, 219, 233, 0.4);
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-menu.open {
+    max-height: 500px;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 28px;
+    gap: 16px;
+}
+
+.mobile-nav-links a {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--c-dark);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: var(--c-primary);
+}
+
+.mobile-menu-footer {
+    padding: 0 28px 24px;
+    display: flex;
+}
+
 @media (max-width: 768px) {
     .nav-outer {
         padding: 10px 0;
@@ -186,9 +248,20 @@ nav {
     .nav-inner {
         height: 68px;
         padding: 0 18px;
+        display: flex;
+        justify-content: space-between;
     }
 
-    .nav-links {
+    .nav-actions {
+        margin-left: 0;
+    }
+
+    .nav-links,
+    .desktop-cta {
         display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
     }
 }

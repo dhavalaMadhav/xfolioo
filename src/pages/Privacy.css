@@ -102,6 +102,7 @@
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--c-dark);
+    text-align: left;
 }
 
 .policy-card {
@@ -110,6 +111,7 @@
     border-radius: var(--radius);
     padding: 28px 32px;
     box-shadow: var(--shadow-sm);
+    text-align: left;
 }
 
 .policy-card p {
@@ -195,5 +197,19 @@
         flex-direction: column;
         gap: 14px;
         padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-section {
+        padding: 48px 16px;
+    }
+
+    .policy-card {
+        padding: 18px 14px;
+    }
+
+    .entity-box {
+        padding: 16px;
     }
 }

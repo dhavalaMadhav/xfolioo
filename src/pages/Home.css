@@ -7,9 +7,11 @@
     background-size: 50px 50px;
     background-position: center top;
     /* tight top — nav floats, so content starts higher */
-    padding: 60px 60px 80px;
+    padding: 60px 40px 80px;
     text-align: left;
     border-bottom: 1px solid var(--c-border);
+    /* Prevent any element from leaking out of hero */
+    overflow-x: hidden;
 }
 
 .hero-inner {
@@ -78,7 +80,7 @@
 }
 
 .brace-content h2 {
-    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-size: clamp(1.3rem, 3vw, 2.5rem);
     font-weight: 500;
     color: #111;
     line-height: 1.1;
@@ -124,7 +126,7 @@
 
 .hero h1 {
     /* dramatically bigger and bolder */
-    font-size: clamp(2.5rem, 6.5vw, 4.2rem);
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
     /* Slightly smaller to fit two columns */
     font-weight: 900;
     line-height: 1.06;
@@ -273,8 +275,7 @@
 /* ── ABOUT (Redesigned Layout with Fintech Stock Theme) ── */
 .about {
     position: relative;
-    background: #09090e;
-    /* Deep navy / black */
+    background-color: #000;
     padding: 120px 0;
     overflow: hidden;
 }
@@ -295,7 +296,7 @@
     background-position: bottom center;
 }
 
-/* Background canvas for snake effect */
+/* Background canvas for geometric effect */
 .about-bg {
     position: absolute;
     top: 0;
@@ -304,12 +305,26 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    background-attachment: fixed;
+}
+
+.about-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
 .about-svg {
     width: 100%;
     height: 100%;
     display: block;
+    position: relative;
+    z-index: 1;
+    /* Sits above the 0.4 opacity black overlay */
 }
 
 /* ── TRUSTED BY ── */
@@ -406,7 +421,7 @@
 }
 
 .about-title {
-    font-size: 3.5rem;
+    font-size: clamp(1.5rem, 5vw, 3.2rem);
     font-weight: 900;
     line-height: 1.2;
     color: #ffffff;
@@ -568,7 +583,7 @@
     }
 
     .about-title {
-        font-size: 2.2rem;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
     }
 
     .about-cards-grid {
@@ -620,25 +635,25 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .service-flip-wrapper {
-    /* Set backface to visible if we want to see the back while flipping, 
-       but keeping hidden gives a cleaner appearance as it fades in */
     will-change: transform, opacity;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.service-flip-wrapper:last-child {
+    border-right: none;
 }
 
 .service-card {
-    padding: 2rem;
-    padding-bottom: 3rem;
-    /* Extra space for the cutout shape */
-    border-radius: var(--radius-md);
-    background-color: var(--c-white);
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 3.5rem 2.5rem;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -655,15 +670,14 @@
     left: 0;
     width: 100%;
     height: 18px;
-    /* High enough for tight cutout */
-    background-image: linear-gradient(to right, var(--c-bg) 30%, transparent 30%, transparent 70%, var(--c-bg) 70%);
+    background-image: linear-gradient(to right, var(--c-white) 30%, transparent 30%, transparent 70%, var(--c-white) 70%);
     z-index: 2;
     transition: opacity 0.4s ease;
 }
 
 /* Keep cutout matching page background even when hovering over the card */
 .service-card:hover::after {
-    background-image: linear-gradient(to right, var(--c-bg) 30%, transparent 30%, transparent 70%, var(--c-bg) 70%);
+    background-image: linear-gradient(to right, var(--c-white) 30%, transparent 30%, transparent 70%, var(--c-white) 70%);
 }
 
 .service-card::before {
@@ -841,7 +855,7 @@
 }
 
 .bento-stat-num {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 900;
     color: #ffffff;
     /* Pure white against the light violet */
@@ -971,7 +985,7 @@
     }
 
     .bento-title {
-        font-size: 2.8rem;
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
     }
 }
 
@@ -984,7 +998,7 @@
 }
 
 .stat-card-v .s-num {
-    font-size: 3rem;
+    font-size: clamp(1.6rem, 5vw, 3rem);
     font-weight: 800;
     color: #fff;
     letter-spacing: -0.03em;
@@ -1034,10 +1048,17 @@
 }
 
 @media (max-width: 640px) {
+
+    /* Strict 1-column mobile grids */
+    .stat-cards-grid,
+    .process-grid,
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero {
-        padding: 60px 24px 64px;
+        padding: 40px 16px 48px;
         text-align: left;
-        /* keeping left align as requested previously, or center if it looks better with stacked graphic. Let's keep it left to match the original */
     }
 
     .hero-inner {
@@ -1047,15 +1068,6 @@
 
     .hero-content {
         max-width: 100%;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.4rem, 9vw, 3.4rem);
-    }
-
-    .hero-graphic-img {
-        max-width: 100%;
-        /* Full width on mobile */
     }
 
     .hero p {
@@ -1079,7 +1091,69 @@
         grid-template-columns: 1fr;
     }
 
-    .stat-cards-grid {
+    /* Braces Container Scaling for Mobile */
+    .brace-container {
+        height: 250px;
+        max-width: 100%;
+    }
+
+    .solid-brace {
+        width: 60px;
+    }
+
+    .brace-content h2 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+        margin-bottom: 20px;
+    }
+
+    .brace-badge {
+        margin-bottom: 12px;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+
+    .brace-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    /* What We Do Mobile Layout */
+    .services-grid {
         grid-template-columns: 1fr;
+    }
+
+    .service-flip-wrapper {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .service-flip-wrapper:last-child {
+        border-bottom: none;
+    }
+
+    /* About Section Mobile Padding & Strip Size */
+    .about {
+        padding: 80px 24px;
+    }
+
+    .about-title::before {
+        width: 2px !important;
+        border-radius: 1px;
+    }
+
+    .about-card {
+        padding: 24px 16px;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .t-logo span {
+        font-size: 0.85rem !important;
+    }
+
+    .snake-line {
+        stroke-width: 40 !important;
     }
 }
