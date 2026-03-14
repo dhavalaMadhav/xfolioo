@@ -15,11 +15,10 @@ export default function Contact() {
 
     return (
         <main>
-            {/* PAGE HEADER */}
-            <div className="page-header">
-                <div className="page-header-inner" style={{ maxWidth: '560px' }}>
-                    <div className="page-badge"><Mail size={14} /> Get In Touch</div>
-                    <h1>Contact Us</h1>
+            {/* PAGE HEADER — left-aligned, no badge */}
+            <div className="page-header custom-people-header">
+                <div className="page-header-inner align-left">
+                    <h1>Contact <span className="accent" style={{ textDecoration: 'underline' }}><span className="roll-text" data-text="Us"><span>Us</span></span></span></h1>
                     <p>Whether you have a financial question, want to organise a workshop, or simply want to talk — we're here.</p>
                 </div>
             </div>
@@ -28,60 +27,64 @@ export default function Contact() {
             <div className="contact-section">
                 <div className="contact-grid">
 
-                    {/* INFO STACK */}
-                    <div className="info-stack">
-                        <div className="info-card">
-                            <div className="info-card-header">
-                                <div className="info-card-icon"><MapPin size={20} /></div>
+                    {/* INFO PANEL — line-partitioned like workshop boxes */}
+                    <div className="info-panel">
+                        <div className="info-block">
+                            <div className="info-block-icon"><MapPin size={22} color="var(--c-primary)" /></div>
+                            <div>
                                 <div className="info-card-title">Our Office</div>
-                            </div>
-                            <div className="info-row">
-                                <span className="info-label">Registered Address</span>
-                                <span className="info-value">Wework Prestige Atlanta<br />No 10/12, 80 Feet Main Road<br />1A Block, Koramangala<br />Bangalore, KA – 560034</span>
+                                <div className="info-row">
+                                    <span className="info-label">Registered Address</span>
+                                    <span className="info-value">Wework Prestige Atlanta<br />No 10/12, 80 Feet Main Road<br />1A Block, Koramangala<br />Bangalore, KA – 560034</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="info-card">
-                            <div className="info-card-header">
-                                <div className="info-card-icon"><Clock size={20} /></div>
+                        <div className="info-block">
+                            <div className="info-block-icon"><Clock size={22} color="var(--c-primary)" /></div>
+                            <div style={{ width: '100%' }}>
                                 <div className="info-card-title">Office Hours</div>
-                            </div>
-                            <div className="hours-grid">
-                                <div className="hours-item">
-                                    <div className="hours-day">Mon – Fri</div>
-                                    <div className="hours-time">10:00 – 17:30</div>
-                                </div>
-                                <div className="hours-item">
-                                    <div className="hours-day">Sat – Sun</div>
-                                    <div className="hours-time">Closed</div>
+                                <div className="hours-grid">
+                                    <div className="hours-item">
+                                        <div className="hours-day">Mon – Fri</div>
+                                        <div className="hours-time">10:00 – 17:30</div>
+                                    </div>
+                                    <div className="hours-item">
+                                        <div className="hours-day">Sat – Sun</div>
+                                        <div className="hours-time">Closed</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="info-card">
-                            <div className="info-card-header">
-                                <div className="info-card-icon"><Phone size={20} /></div>
+                        <div className="info-block">
+                            <div className="info-block-icon"><Phone size={22} color="var(--c-primary)" /></div>
+                            <div>
                                 <div className="info-card-title">Reach Us Directly</div>
-                            </div>
-                            <div className="info-row">
-                                <span className="info-label">Phone</span>
-                                <span className="info-value">
-                                    <a href="tel:+919618521123">+91 96185 21123</a>
-                                    <a href="tel:+919611688851">+91 96116 88851</a>
-                                </span>
-                            </div>
-                            <div className="info-row">
-                                <span className="info-label">Email</span>
-                                <span className="info-value">
-                                    <a href="mailto:ug@xfolioo.com">ug@xfolioo.com</a>
-                                    <a href="mailto:shahul@xfolioo.com">shahul@xfolioo.com</a>
-                                </span>
+                                <div className="info-row">
+                                    <span className="info-label">Phone</span>
+                                    <span className="info-value">
+                                        <a href="tel:+919618521123">+91 96185 21123</a>
+                                        <a href="tel:+919611688851">+91 96116 88851</a>
+                                    </span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">Email</span>
+                                    <span className="info-value">
+                                        <a href="mailto:ug@xfolioo.com">ug@xfolioo.com</a>
+                                        <a href="mailto:shahul@xfolioo.com">shahul@xfolioo.com</a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* FORM */}
                     <div className="form-card">
+                        {/* Decorative circular badge — top-right corner */}
+                        <div className="form-corner-badge">
+                            SEBI<br />REGISTERED
+                        </div>
                         <h2>Send Us a Message</h2>
                         <p className="form-sub">Fill in the form and we'll respond within one business day.</p>
                         <form onSubmit={handleSubmit}>

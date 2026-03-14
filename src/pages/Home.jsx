@@ -145,10 +145,10 @@ export default function Home() {
                         <p className="scroll-reveal delay-1">We are a personal investment services firm dedicated to helping families reach their financial goals through disciplined, long-term wealth creation strategies.</p>
                         <div className="hero-btns scroll-reveal delay-2">
                             <Link to="/contact" className="hero-btn hero-btn-primary">
-                                <Calendar size={18} /> Schedule an Expert Call
+                                <Calendar size={18} /> <span className="roll-text" data-text="Schedule an Expert Call"><span>Schedule an Expert Call</span></span>
                             </Link>
                             <Link to="/workshops" className="hero-btn hero-btn-ghost">
-                                Explore Workshops <ArrowRight size={18} className="btn-arrow" />
+                                <span className="roll-text" data-text="Explore Workshops"><span>Explore Workshops</span></span> <ArrowRight size={18} className="btn-arrow" />
                             </Link>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ export default function Home() {
                             <div className="brace-content">
                                 <div className="brace-badge">Long-term Focus</div>
                                 <h2>For investors<br /><span className="brace-sub">Achieve true wealth</span></h2>
-                                <Link to="/contact" className="brace-btn">Start Planning</Link>
+                                <Link to="/contact" className="brace-btn"><span className="roll-text" data-text="Start Planning"><span>Start Planning</span></span></Link>
                             </div>
 
                             {/* Right Solid Brace */}
@@ -192,16 +192,14 @@ export default function Home() {
 
             {/* ABOUT */}
             <section className="about" ref={aboutRef}>
-                {/* DYNAMIC FINTECH BACKGROUND */}
                 <div className="about-bg">
                     <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" className="about-svg">
-                        {/* Market stock snake line (single zigzag, rounded corners) */}
                         <path
                             ref={snakeRef}
                             className="snake-line"
                             d="M -50 450 L 400 150 L 800 450 L 1250 100"
                             fill="none"
-                            stroke="rgba(241, 204, 213, 0.08)" /* Pink from the palette, very low opacity */
+                            stroke="rgba(138, 43, 226, 0.4)" /* Violet snake with transparency */
                             strokeWidth="100"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -299,7 +297,7 @@ export default function Home() {
                                 <div className="service-icon"><TrendingUp size={32} /></div>
                                 <h3 className="service-title">Investment Solutions</h3>
                                 <p className="service-desc">Access and manage Mutual Funds, Portfolio Management Services (PMS), and Alternative Investment Funds (AIFs), matched precisely to your risk profile.</p>
-                                <Link to="/contact" className="service-link">Learn More &rarr;</Link>
+                                <Link to="/contact" className="service-link"><span className="roll-text" data-text="Learn More"><span>Learn More</span></span> &rarr;</Link>
                             </div>
                         </div>
                         <div className="service-flip-wrapper">
@@ -307,7 +305,7 @@ export default function Home() {
                                 <div className="service-icon"><Target size={32} /></div>
                                 <h3 className="service-title">Goal-Based Planning</h3>
                                 <p className="service-desc">Plan for every milestone including child's education, dream home financing, and secure retirement structuring, aligned to specific timelines.</p>
-                                <Link to="/contact" className="service-link">Learn More &rarr;</Link>
+                                <Link to="/contact" className="service-link"><span className="roll-text" data-text="Learn More"><span>Learn More</span></span> &rarr;</Link>
                             </div>
                         </div>
                         <div className="service-flip-wrapper">
@@ -315,7 +313,7 @@ export default function Home() {
                                 <div className="service-icon"><Scale size={32} /></div>
                                 <h3 className="service-title">Specialised Services</h3>
                                 <p className="service-desc">Comprehensive tax planning, estate structuring solutions, and professional will drafting, handled by qualified experts.</p>
-                                <Link to="/contact" className="service-link">Learn More &rarr;</Link>
+                                <Link to="/contact" className="service-link"><span className="roll-text" data-text="Learn More"><span>Learn More</span></span> &rarr;</Link>
                             </div>
                         </div>
                     </div>
@@ -330,7 +328,7 @@ export default function Home() {
                         <div className="bento-title-block scroll-reveal">
                             <h2 className="bento-title about-title title-white animate-line" style={{ marginBottom: '24px' }}><span>India's <span className="highlight">wealth</span> is trapped in the wrong places.</span></h2>
                             <p className="bento-sub">Most Indian households are unknowingly losing purchasing power to inflation every year. Staying on the sidelines is the real risk.</p>
-                            <Link to="/contact" className="bento-btn">GET STARTED &rarr;</Link>
+                            <Link to="/contact" className="bento-btn"><span className="roll-text" data-text="GET STARTED"><span>GET STARTED</span></span> &rarr;</Link>
                         </div>
 
                         {/* 2. Top Mid - Stat 1 (Span 1) */}
@@ -351,7 +349,7 @@ export default function Home() {
                         <div className="bento-card bento-image-large scroll-reveal delay-1">
                             <div className="bento-image-overlay"></div>
                             <div className="bento-image-content">
-                                <Link to="/people" className="bento-hover-btn">OUR PEOPLE &rarr;</Link>
+                                <Link to="/people" className="bento-hover-btn"><span className="roll-text" data-text="OUR PEOPLE"><span>OUR PEOPLE</span></span> &rarr;</Link>
                             </div>
                         </div>
 

@@ -1,6 +1,7 @@
 .contact-section {
     background: var(--c-bg);
     padding: 80px 40px;
+    overflow-x: hidden;
 }
 
 .contact-grid {
@@ -12,19 +13,36 @@
     align-items: start;
 }
 
-/* INFO CARDS */
-.info-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.info-card {
-    background: var(--c-white);
+/* INFO PANEL — line-partitioned like Workshop boxes */
+.info-panel {
     border: 1px solid var(--c-border);
     border-radius: var(--radius);
-    padding: 28px;
+    background: var(--c-white);
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
+}
+
+.info-block {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 28px 24px;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.info-block:last-child {
+    border-bottom: none;
+}
+
+.info-block-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding-top: 2px;
 }
 
 .info-card-header {
@@ -50,6 +68,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: var(--c-dark);
+    margin-bottom: 12px;
 }
 
 .info-row {
@@ -125,6 +144,35 @@
     border-radius: var(--radius);
     padding: 48px 44px;
     box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: visible;
+}
+
+/* Decorative circular corner badge with spokes */
+.form-corner-badge {
+    position: absolute;
+    top: -42px;
+    right: 28px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.4;
+    border: 3px dashed rgba(255, 255, 255, 0.7);
+    outline: 2px solid var(--c-primary);
+    box-shadow: 0 0 0 5px var(--c-primary), 0 0 0 8px rgba(138, 43, 226, 0.25);
+    white-space: normal;
+    padding: 8px;
 }
 
 .form-card h2 {
@@ -237,6 +285,24 @@
     }
 
     .form-row-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 48px 16px;
+    }
+
+    .form-card {
+        padding: 24px 16px;
+    }
+
+    .form-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .hours-grid {
         grid-template-columns: 1fr;
     }
 }

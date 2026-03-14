@@ -15,23 +15,23 @@ export default function Footer() {
                 <div className="f-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/people">Our People</Link></li>
-                        <li><Link to="/workshops">Workshops</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/login">Client Login</Link></li>
-                        <li><Link to="/privacy">Privacy</Link></li>
+                        <li><Link to="/"><span className="roll-text" data-text="Home"><span>Home</span></span></Link></li>
+                        <li><Link to="/people"><span className="roll-text" data-text="Our People"><span>Our People</span></span></Link></li>
+                        <li><Link to="/workshops"><span className="roll-text" data-text="Workshops"><span>Workshops</span></span></Link></li>
+                        <li><Link to="/contact"><span className="roll-text" data-text="Contact"><span>Contact</span></span></Link></li>
+                        <li><Link to="/login"><span className="roll-text" data-text="Client Login"><span>Client Login</span></span></Link></li>
+                        <li><Link to="/privacy"><span className="roll-text" data-text="Privacy"><span>Privacy</span></span></Link></li>
                     </ul>
                 </div>
                 <div className="f-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Mutual Funds</a></li>
-                        <li><a href="#">PMS Services</a></li>
-                        <li><a href="#">AIFs</a></li>
-                        <li><a href="#">Goal-Based Planning</a></li>
-                        <li><a href="#">Tax Planning</a></li>
-                        <li><a href="#">Estate Planning</a></li>
+                        <li><a href="#"><span className="roll-text" data-text="Mutual Funds"><span>Mutual Funds</span></span></a></li>
+                        <li><a href="#"><span className="roll-text" data-text="PMS Services"><span>PMS Services</span></span></a></li>
+                        <li><a href="#"><span className="roll-text" data-text="AIFs"><span>AIFs</span></span></a></li>
+                        <li><a href="#"><span className="roll-text" data-text="Goal-Based Planning"><span>Goal-Based Planning</span></span></a></li>
+                        <li><a href="#"><span className="roll-text" data-text="Tax Planning"><span>Tax Planning</span></span></a></li>
+                        <li><a href="#"><span className="roll-text" data-text="Estate Planning"><span>Estate Planning</span></span></a></li>
                     </ul>
                 </div>
                 <div className="f-col">
